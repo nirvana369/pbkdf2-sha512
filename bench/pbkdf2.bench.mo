@@ -21,7 +21,7 @@ module {
         let test = {
                     password = #text "passwordPASSWORDpassword";
                     salt = #text "saltSALTsaltSALTsaltSALTsaltSALTsalt";
-                    iterations = 4096;
+                    iterations = 369;
                     keyLen = 64;
                 };
         let bench = Bench.Bench();
@@ -31,7 +31,7 @@ module {
 
         bench.rows(["pbkdf2_sha512",
                     ]);
-        bench.cols(["1", "10", "100", "500", "1000"]);
+        bench.cols(["1", "10", "25", "50"]);
 
         bench.runner(func(row, col) {
             let ?n = Nat.fromText(col);

@@ -1,16 +1,15 @@
 /*******************************************************************
 * Copyright         : 2025 nirvana369
-* File Name         : lib.test.mo
-* Description       : test
+* File Name         : async-pbkdf2.test.mo
+* Description       : large instruction/ iterations - async test
 *                    
 * Revision History  :
 * Date				Author    		Comments
 * ---------------------------------------------------------------------------
-* 19/06/2025		nirvana369 		implement
+* 20/06/2025		nirvana369 		implement
 ******************************************************************/
 
 import {test; suite} "mo:test/async";
-import Debug "mo:base/Debug";
 import Utils "../src/utils";
 import PBKDF2 "../src/lib";
 import Sha512 "./sha512";
