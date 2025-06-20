@@ -1,0 +1,22 @@
+[package]
+name = "pbkdf2-sha512"
+version = "1.0.0"
+description = "A pure Motoko implementation of the PBKDF2 (Password-Based Key Derivation Function 2) using HMAC-SHA512"
+repository = "https://github.com/nirvana369/pbkdf2-sha512"
+keywords = [
+  "pbkdf2",
+  "sha512",
+  "hmac",
+  "key-derivation",
+  "password-hashing",
+  "crypto",
+  "motoko"
+]
+license = "MIT"
+
+[dev-dependencies]
+test = "2.1.1"
+bench = "1.0.0"
+
+[dependencies]
+tweetnacl = "1.1.2"
