@@ -11,22 +11,13 @@
 
 import Bench "mo:bench";
 import Nat "mo:base/Nat";
-import Buffer "mo:base/Buffer";
 import Iter "mo:base/Iter";
-import Nat8 "mo:base/Nat8";
-import Array "mo:base/Array";
-import Nat32 "mo:base/Nat32";
-import Utils "../src/utils";
-import {pbkdf2_sha512; async_pbkdf2; pbkdf2} "../src/lib";
-import Sha512 "../test/sha512";
-import Cycles "mo:base/ExperimentalCycles";
+import {pbkdf2_sha512} "../src/lib";
 
 module {
 
     public func init() : Bench.Bench {
 
-        // Cycles.add(4_000_000_000_000);
-        // let sha512 = await Sha512.Sha512();
         let test = {
                     password = #text "passwordPASSWORDpassword";
                     salt = #text "saltSALTsaltSALTsaltSALTsaltSALTsalt";
@@ -35,10 +26,10 @@ module {
                 };
         let bench = Bench.Bench();
 
-        bench.name("Benchmark");
-        bench.description("module benchmark");
+        bench.name("PBKDF2-SHA512 Benchmark");
+        bench.description("PBKDF2 module benchmark");
 
-        bench.rows(["pbkdf2",
+        bench.rows(["pbkdf2_sha512",
                     ]);
         bench.cols(["1", "10", "100", "500", "1000"]);
 
@@ -47,7 +38,7 @@ module {
 
             switch (row) {
                 // Engine V1
-                case ("old") {
+                case ("pbkdf2_sha512") {
                     for (i in Iter.range(1, n)) {
                         ignore pbkdf2_sha512(test.password, test.salt, test.iterations, test.keyLen);
                     };
